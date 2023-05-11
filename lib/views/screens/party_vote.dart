@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../controllers/helper/firestore_helper.dart';
@@ -15,8 +16,27 @@ class _Party_PageState extends State<Party_Page> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Party Vote"),
+        backgroundColor: Colors.teal,
+        title: const Text(
+          "Party App",
+          style: TextStyle(
+            fontWeight: FontWeight.w600,
+            color: Colors.white,
+            letterSpacing: 5,
+          ),
+        ),
         centerTitle: true,
+        actions: [
+          IconButton(
+            onPressed: () {
+              Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false);
+            },
+            icon: const Icon(
+              CupertinoIcons.home,
+              color: Colors.white,
+            ),
+          ),
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(12),
@@ -42,20 +62,23 @@ class _Party_PageState extends State<Party_Page> {
                       List<QueryDocumentSnapshot<Map<String, dynamic>>>
                           allDocs = data.docs;
 
-                      return Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: ListView.builder(
-                          itemCount: allDocs.length,
-                          itemBuilder: (context, i) {
-                            return Card(
-                              child: ListTile(
-                                leading: Text("${allDocs[i].id}"),
-                                title: Text("${allDocs[i].data()['party']}"),
-                                trailing: Text("${allDocs[i].data()['vote']}"),
+                      return ListView.builder(
+                        itemCount: allDocs.length,
+                        itemBuilder: (context, i) {
+                          return Card(
+                            child: ListTile(
+                              leading: Text("${i + 1}"),
+                              title: Text("${allDocs[i].data()['party']}"),
+                              trailing: Text(
+                                "${allDocs[i].data()['vote']} VOTE",
+                                style: const TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w500,
+                                ),
                               ),
-                            );
-                          },
-                        ),
+                            ),
+                          );
+                        },
                       );
                     }
                   }

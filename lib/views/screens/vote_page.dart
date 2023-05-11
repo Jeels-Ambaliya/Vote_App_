@@ -17,7 +17,15 @@ class _Vote_PageState extends State<Vote_Page> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Vote"),
+        backgroundColor: Colors.teal,
+        title: const Text(
+          "Vote App",
+          style: TextStyle(
+            fontWeight: FontWeight.w600,
+            color: Colors.white,
+            letterSpacing: 5,
+          ),
+        ),
         centerTitle: true,
       ),
       body: StreamBuilder(
@@ -39,7 +47,22 @@ class _Vote_PageState extends State<Vote_Page> {
                   data.docs;
 
               return Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  const Padding(
+                    padding: EdgeInsets.only(
+                      top: 20,
+                      left: 20,
+                      bottom: 10,
+                    ),
+                    child: Text(
+                      "Select Your Party.",
+                      style: TextStyle(
+                        fontSize: 25,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ),
                   ListTile(
                     leading: Radio<String>(
                       value: 'BJP',
@@ -74,7 +97,7 @@ class _Vote_PageState extends State<Vote_Page> {
                         });
                       },
                     ),
-                    title: const Text('Congress'),
+                    title: const Text('CONGRESS'),
                   ),
                   ListTile(
                     leading: Radio<String>(
@@ -86,7 +109,7 @@ class _Vote_PageState extends State<Vote_Page> {
                         });
                       },
                     ),
-                    title: const Text('Other'),
+                    title: const Text('OTHER'),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(top: 50),
@@ -165,20 +188,22 @@ class _Vote_PageState extends State<Vote_Page> {
                         Navigator.pushNamedAndRemoveUntil(
                             context, 'party_page', (route) => false);
                       },
-                      child: Container(
-                        height: 70,
-                        width: 170,
-                        alignment: Alignment.center,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          color: Colors.teal,
-                        ),
-                        child: const Text(
-                          "VOTE",
-                          style: TextStyle(
-                            fontSize: 22,
-                            color: Colors.white,
-                            fontWeight: FontWeight.w600,
+                      child: Center(
+                        child: Container(
+                          height: 60,
+                          width: 170,
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color: Colors.teal,
+                          ),
+                          child: const Text(
+                            "VOTE",
+                            style: TextStyle(
+                              fontSize: 22,
+                              color: Colors.white,
+                              fontWeight: FontWeight.w600,
+                            ),
                           ),
                         ),
                       ),
