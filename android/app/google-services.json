@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "999703059983",
+    "project_id": "vote-app-dce30",
+    "storage_bucket": "vote-app-dce30.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:999703059983:android:b20b9e082cdff490ac4d7a",
+        "android_client_info": {
+          "package_name": "com.jeels21.vote_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "999703059983-pob3j3tpp7200pl7g3d86bhr2f3bci77.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDRh2tNy_ENu6ax_2pIwh7wO0CZMn446Jw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "999703059983-pob3j3tpp7200pl7g3d86bhr2f3bci77.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
